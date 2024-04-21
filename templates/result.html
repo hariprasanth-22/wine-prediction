@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Results</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+pre {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    white-space: pre-wrap; /* for wrapping long lines */
+}
+
+a {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+
+a:hover {
+    background-color: #45a049;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The results are here</h1>
+        {% if list %}
+        <h2>The data you entered:</h2>
+        <pre>{{ list }}</pre>
+        {% endif %}
+        <h2>The output is:</h2>
+        {% if prediction >= 0 and prediction <= 5 %}
+        <p>Good Quality Wine</p>
+        {% else %}
+        <p>Not a Good Quality Wine</p>
+        {% endif %}
+
+        
+        <a href="{% url 'home' %}">Go to Home</a>
+    </div>    
+</body>
+</html>
